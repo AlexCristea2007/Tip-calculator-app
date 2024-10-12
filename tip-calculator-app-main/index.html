@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div class="appWrapper">
+      <h1 class="title">spli<br />tter</h1>
+      <section class="calculator">
+        <section class="fill_section">
+          <div class="bill">
+            <div class="bill_text">
+              <h3>Bill</h3>
+              <p id="error_text">Can't be zero</p>
+            </div>
+            <div id="input">
+              <div class="icon_box">
+                <img src="./images/icon-dollar.svg" alt="icon-dollar" />
+              </div>
+              <input
+                type="text"
+                id="bill_input"
+                pattern="^\d+(\.\d{1,2})?$"
+                placeholder="0"
+                required
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+              />
+            </div>
+          </div>
+          <div class="tip">
+            <h3>Select Tip %</h3>
+            <div class="inputs_list">
+              <button id="tip_btn">5%</button>
+              <button id="tip_btn">10%</button>
+              <button id="tip_btn">15%</button>
+              <button id="tip_btn">25%</button>
+              <button id="tip_btn">50%</button>
+              <input
+                type="text"
+                id="tip_input"
+                pattern="^\d+(\.\d{1,2})?$"
+                placeholder="Custom"
+                required
+                max="100"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\..*/g, '$1'); if (this.value > 100) this.value = 100;"
+              />
+            </div>
+          </div>
+          <div class="people">
+            <div class="people_text">
+              <h3>Number of People</h3>
+              <p id="error_text">Can't be zero</p>
+            </div>
+            <div id="input">
+              <div class="icon_box">
+                <img src="./images/icon-person.svg" alt="icon-person" />
+              </div>
+              <input
+                type="text"
+                id="people_input"
+                pattern="^\d+(\.\d{1,2})?$"
+                placeholder="0"
+                required
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="results_section">
+          <div class="summary">
+            <div class="tip_amount">
+              <p>Tip Amount<span>/ person</span></p>
+              <p id="tip_amount_result">$0.00</p>
+            </div>
+            <div class="total_amount">
+              <p>Total<span>/ person</span></p>
+              <p id="total_amount_result">$0.00</p>
+            </div>
+          </div>
+          <button id="reset_btn">Reset</button>
+        </section>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
